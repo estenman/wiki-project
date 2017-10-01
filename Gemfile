@@ -20,6 +20,7 @@ source 'https://rubygems.org'
  gem 'turbolinks'
  gem 'bootstrap-sass'
  gem 'figaro'
+ gem 'devise'
 
  group :development, :test do
    gem 'byebug'
@@ -30,5 +31,3 @@ source 'https://rubygems.org'
    gem 'factory_girl_rails'
    gem 'pry-rails'
  end
-
- gem 'bootstrap-sass'
