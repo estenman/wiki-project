@@ -78,6 +78,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   #Devise default urls for action mailer options
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = { host: 'intense-escarpment-81403.herokuapp.com', port: 3000 }
 
 end
