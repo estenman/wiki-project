@@ -2,13 +2,14 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable
+       :recoverable, :rememberable, :trackable, :validatable, :confirmable
+  #end
 
-  after_create :send_confirmation_emails
+  #after_create :send_confirmation_emails
 
-  private
+  #private
 
-  def send_confirmation_emails
-    ConfirmationMailer.new_registration(user).deliver_now
-  end
+  #def send_confirmation_emails
+    #ConfirmationMailer.new_registration(self).deliver_now
+  #end
 end
