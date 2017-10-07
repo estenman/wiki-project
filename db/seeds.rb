@@ -1,13 +1,26 @@
-require 'random_data'
+require 'rubygems'
+require 'faker'
+
+ # Create Users
+ 5.times do
+   User.create!(
+     username: Faker::Internet.user_name,
+     email: Faker::Internet.safe_email,
+     password: Faker::Lorem.characters(7),
+     confirmed_at: "2017-10-07 16:38:08"
+   )
+ end
 
  # Create Wikis
  25.times do
    Wiki.create!(
-     title:  RandomData.random_sentence,
-     body:   RandomData.random_paragraph,
+     title:  Faker::Lorem.sentence(5),
+     body:   Faker::Lorem.paragraph(3),
      private: false
    )
  end
+
+
  #wikis = Wiki.all
 
  # Create Comments
@@ -21,4 +34,5 @@ require 'random_data'
 
  puts "Seed finished"
  puts "#{Wiki.count} wikis created"
+ puts "#{User.count} users created"
  #puts "#{Comment.count} comments created"
