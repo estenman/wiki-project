@@ -1,8 +1,8 @@
 require 'rails_helper'
+include RandomData
 
 RSpec.describe WikisController, type: :controller do
-
-  let(:my_wiki) { Wiki.create!(title: "My title", body: "My wiki body") }
+  let(:my_wiki) { create(:wiki) }
 
   describe "GET #index" do
     it "returns http success" do
@@ -19,17 +19,17 @@ RSpec.describe WikisController, type: :controller do
 
   describe "GET show" do
     it "returns http success" do
-      get :show, {id: my_wiki.id}
+      get :show, id: my_wiki.id
       expect(response).to have_http_status(:success)
     end
 
     it "renders the #show view" do
-      get :show, {id: my_wiki.id}
+      get :show, id: my_wiki.id
       expect(response).to render_template :show
     end
 
     it "assigns my_wiki to @wiki" do
-      get :show, {id: my_wiki.id}
+      get :show, id: my_wiki.id
       expect(assigns(:wiki)).to eq(my_wiki)
     end
   end
