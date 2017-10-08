@@ -41,8 +41,15 @@
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<h3>Account type</h3>
+<p>Your current account type is: <%= current_user.role %> </p>
+<% if current_user.role == "standard" %>
+  <%= link_to "Upgrade to Premium Now", new_charge_path %>
+<% elsif current_user.role == "premium" %>
+  <%= link_to "Downgrade to standard", registration_path(resource_name), method: :update  %>
+<% end %>
 
+<h3>Cancel my account</h3>
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>

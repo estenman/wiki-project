@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  belongs_to :charge
+
   devise :database_authenticatable, :registerable,
        :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
@@ -10,6 +12,10 @@ class User < ActiveRecord::Base
     if self.new_record?
       self.role ||= :standard
     end
+  end
+
+  def update_role
+    update_attribute(:role, "premium")
   end
 
   #after_create :send_confirmation_emails
