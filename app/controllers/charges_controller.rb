@@ -19,7 +19,8 @@ class ChargesController < ApplicationController
   flash[:notice] = "Thank you for upgrading, #{current_user.email} to Premium. You can now create private wikis!"
   redirect_to new_wiki_path
 
-  Charge.create(premium_paid: true)
+  current_user.update_role
+  #Charge.create(premium_paid: true)
 
   # Stripe will send back CardErrors, with friendly messages
   # when something goes wrong.
