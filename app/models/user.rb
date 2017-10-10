@@ -14,15 +14,12 @@ class User < ActiveRecord::Base
     end
   end
 
-  def update_role
+  def upgrade_role
     update_attribute(:role, "premium")
   end
 
-  #after_create :send_confirmation_emails
+  def downgrade_role
+    update_attribute(:role, "standard")
+  end
 
-  #private
-
-  #def send_confirmation_emails
-    #ConfirmationMailer.new_registration(self).deliver_now
-  #end
 end
