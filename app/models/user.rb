@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  belongs_to :charge
 
   devise :database_authenticatable, :registerable,
        :recoverable, :rememberable, :trackable, :validatable, :confirmable

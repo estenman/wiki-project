@@ -40,8 +40,11 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   #Devise default urls for action mailer options
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = { host: 'localhost' }
 
   #Actionmailer informative errors
   config.raise_delivery_errors = true
+
+  #Enable sending attempt from article
+  #config.action_mailer.perform_deliveries = true
 end

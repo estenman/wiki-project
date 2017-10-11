@@ -1,8 +1,6 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
-  #Added per stackoverflow
-  #config.router_name = :main_app end
 
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
@@ -15,7 +13,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'elstenman@gmail.com'
+  config.mailer_sender = 'app78145809@heroku.com'
 
   # Configure the class responsible to send e-mails.
   config.mailer = 'Devise::Mailer'
