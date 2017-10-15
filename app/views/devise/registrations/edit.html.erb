@@ -46,7 +46,7 @@
 <% if current_user.role == "standard" %>
   <%= link_to "Upgrade to Premium Now", new_charge_path %>
 <% elsif current_user.role == "premium" %>
-  <%= link_to "Downgrade to standard", current_user.downgrade_role  %>
+  <%= link_to "Downgrade to standard", charge_path(current_user.stripe_id), method: :delete %>
 <% end %>
 
 <h3>Cancel my account</h3>
