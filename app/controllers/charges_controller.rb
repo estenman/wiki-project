@@ -19,8 +19,8 @@ class ChargesController < ApplicationController
   flash[:notice] = "Thank you for upgrading, #{current_user.email} to Premium. You can now create private wikis!"
   redirect_to new_wiki_path
 
-  current_user.upgrade_role
-  #Charge.create(premium_paid: true)
+  current_user.update_attribute(:role, "premium")
+  current_user.update_attribute(:stripe_id, customer.id)
 
   # Stripe will send back CardErrors, with friendly messages
   # when something goes wrong.
@@ -38,4 +38,17 @@ class ChargesController < ApplicationController
     }
   end
 
+  def destroy
+  # Retrieve the customer
+  customer = Stripe::Customer.retrieve(current_user.stripe_id)
+
+  #Delete the customer
+  customer.delete
+
+  flash[:notice] = "#{current_user.email} you have been downgraded to Standard. You can no longer create private wikis."
+  redirect_to new_wiki_path
+
+  current_user.update_attribute(:role, "standard")
+
+  end
 end

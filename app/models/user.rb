@@ -13,12 +13,4 @@ class User < ActiveRecord::Base
     end
   end
 
-  def upgrade_role
-    update_attribute(:role, "premium")
-  end
-
-  def downgrade_role
-    update_attribute(:role, "standard")
-  end
-
 end
