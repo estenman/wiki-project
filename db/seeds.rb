@@ -11,12 +11,15 @@ require 'faker'
    )
  end
 
+ users = User.all
+
  # Create Wikis
  25.times do
    Wiki.create!(
      title:  Faker::Lorem.sentence(5),
      body:   Faker::Lorem.paragraph(3),
-     private: false
+     private: false,
+     user: users.sample
    )
  end
 
