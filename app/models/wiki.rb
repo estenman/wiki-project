@@ -1,5 +1,7 @@
 class Wiki < ActiveRecord::Base
   belongs_to :user
+  has_many :collaborators
+  has_many :users, through: :collaborators
 
   class << self
     def markdown_method
@@ -14,4 +16,5 @@ class Wiki < ActiveRecord::Base
       markdown: self.class.markdown_method.render(body)
       })
   end
+
 end

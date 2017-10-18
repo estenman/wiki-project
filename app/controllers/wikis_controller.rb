@@ -25,6 +25,7 @@ class WikisController < ApplicationController
       flash.now[:alert] = "There was an error saving the wiki. Please try again"
       render :new
     end
+    #Note to self can do params[:user][:user_id] to get array of all the users the user choose
   end
 
   def edit
