@@ -22,6 +22,11 @@ class WikiPolicy < ApplicationPolicy
         all_wikis = scope.all
         wikis = []
         all_wikis.each do |wiki|
+          p "*******"
+          p user
+          p "*******"
+          p wiki.collaborators
+          p "*******"
           if !wiki.private? || wiki.collaborators.include?(user)
             wikis << wiki # only show standard users public wikis and private wikis they are a collaborator on
           end
