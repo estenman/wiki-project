@@ -33,14 +33,10 @@
 </div>
 <div class="row">
   <div class="col-md-4">
-    <!--
-    <% User.all.each do |user| %>
-      <% if user != current_user || @wiki.collaborators.object.user.include?(user.id)%>
+    <% @wiki.users.each do |user| %>
         <%= user.username %>
-        <%= link_to "Remove", collaborators_path(:wiki => @wiki, :user => user), method: :delete %>
-      <% end %>
+        <%= link_to "Remove", collaborator_path(:wiki => @wiki, :user => user), method: :delete %>
     <% end %>
-  -->
   </div>
   <% if current_user.role == "admin" || current_user.role == "premium" %>
     <div class="col-md-8">

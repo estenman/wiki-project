@@ -16,4 +16,16 @@ class CollaboratorsController < ApplicationController
       render "wikis/new"
     end
   end
+
+  def destroy
+    @collaborator = Collaborator.find(params[:user])
+
+    if @collaborator.destroy
+      flash[:notice] = "Collaborator was deleted successfully."
+      redirect_to @wiki
+    else
+      flash.now[:alert] = "There was an error deleting the collaborator."
+      render "wikis/new"
+    end
+  end
 end

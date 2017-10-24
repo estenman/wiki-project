@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :charges, only: [:new, :create, :destroy]
 
-  resources :collaborators, only: [:create]
+  resources :collaborators, only: [:create, :destroy]
 
   get 'about' => 'welcome#about'
 
