@@ -1,28 +1,39 @@
-== README
+# Blocipedia
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The goal of the project was to build an app similar to Wikipedia. A live version of it can be seen here. https://intense-escarpment-81403.herokuapp.com/
 
-Things you may want to cover:
+![Home page](https://user-images.githubusercontent.com/23269503/32997305-024b234a-cd43-11e7-9150-6306ed5129b7.png)
 
-* Ruby version
+## Getting Started
 
-* System dependencies
+These instructions will get you a copy of the project up and running on your local machine.
 
-* Configuration
+### Prerequisites
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+You will need to have Ruby on Rails installed.
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+## Running the tests
+
+Utilize RSpec to run the test available in the basic tests in the Spec folder. Seed data is provided to help with testing.
+
+## Built With
+
+* [Ruby on Rails](http://guides.rubyonrails.org/) - The framework used
+* [RSpec](http://rspec.info/documentation/) - Gem used for testing
+* [Sendgrid](https://sendgrid.com/docs) - Used for sending emails
+* [Faker](https://rubygems.org/gems/faker/versions/1.6.6) - Gem used for creating test objects
+* [Devise](https://rubygems.org/gems/devise) - Gem used for user signups
+* [Bootstrap](https://rubygems.org/gems/bootstrap/versions/4.0.0.alpha4) - Gem used for front end framework
+* [Pundit](https://rubygems.org/gems/pundit) - Gem used for authorization and scoping
+* [Stripe](https://rubygems.org/gems/stripe) - Gem used to implement payments for premium accounts
+* [Redcarpet](https://rubygems.org/gems/redcarpet) - Gem to add the ability to edit with markdown
+
+## Author
+
+* **Ericka Stenman** - https://github.com/estenman
+
+
+## Acknowledgments
+
+* My mentor Christine at Bloc for providing assistance as I built my second Ruby on Rails application.

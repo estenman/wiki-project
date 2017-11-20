@@ -9,7 +9,9 @@ class WikiPolicy < ApplicationPolicy
 
     def resolve
       wikis = []
-      if user.role == 'admin'
+      if user.nil?  # A guest not signed in
+        return wikis
+      elsif user.role == 'admin'
         wikis = scope.all # if the user is an admin, show them all the wikis
       elsif user.role == 'premium'
         all_wikis = scope.all
@@ -22,11 +24,6 @@ class WikiPolicy < ApplicationPolicy
         all_wikis = scope.all
         wikis = []
         all_wikis.each do |wiki|
-          p "*******"
-          p user
-          p "*******"
-          p wiki.collaborators
-          p "*******"
           if !wiki.private? || wiki.users.include?(user)
             wikis << wiki # only show standard users public wikis and private wikis they are a collaborator on
           end
